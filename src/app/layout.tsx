@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from 'next';
 import { figtree, space_mono } from "./utils/fonts";
 import "./ui/globals.css";
 
@@ -15,10 +16,6 @@ export const metadata: Metadata = {
   authors: [{ name: owner, url: url }],
   generator: 'Next.js',
   keywords: ['portfolio', 'milo ramirez', 'developer', 'designer', 'frontend', 'react', 'next.js'],
-  // themeColor: [
-  //   { media: '(prefers-color-scheme: dark)', color: '#4D3F78' },
-  //   { media: '(prefers-color-scheme: light)', color: '#f4f3f2' }],
-  viewport: { width: 'device-width', initialScale: 1 },
   creator: owner,
   alternates: { canonical: url },
   icons: { icon: `${url}favicon.ico`, apple: `${url}favicon.png` },
@@ -43,6 +40,17 @@ export const metadata: Metadata = {
         alt: `${owner} logo`
       }]
     }
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  userScalable: false,
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#1D1E21' },
+    { media: '(prefers-color-scheme: light)', color: '#F4F3F2' }
+  ]
 };
 
 export default function RootLayout({

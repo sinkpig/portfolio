@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { figtree, space_mono } from "./utils/fonts";
 import "./ui/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
 const url = 'https://milo-ramirez.web.app/'
 const owner = 'Milo Ramirez';
 const title = `${owner} Portfolio`;
@@ -30,17 +29,17 @@ export const metadata: Metadata = {
       description: description,
       siteName: title,
       images: [{
-        url: `${url}milo-ramirez-share-bg.png`,
+        url: `${url}milo-ramirez-share-bg.jpg`,
         alt: `${owner} logo`,
       }],
       locale: 'en_US',
     },
   twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
       // site: '@site',
       title: titleLong,
       images: [{
-        url: `${url}milo-ramirez-share-bg.png`,
+        url: `${url}milo-ramirez-share-icon.jpg`,
         alt: `${owner} logo`
       }]
     }
@@ -53,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${figtree} ${space_mono}`}>{children}</body>
     </html>
   );
 }

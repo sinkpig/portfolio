@@ -6,22 +6,8 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "headers": [
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache"
-          }
-        ]
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/__/*",
-        "function": false
-      }
-    ]
+    "frameworksBackend": {
+      "region": "us-east1"
+    }
   }
 }

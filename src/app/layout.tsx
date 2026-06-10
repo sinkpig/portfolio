@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
 import type { Viewport } from 'next';
-import { figtree, space_mono } from "./utils/fonts";
+import { Figtree, Space_Mono } from "next/font/google";
 import "./ui/globals.css";
+
+const figtree = Figtree({
+  weight: ['300', '700'],
+  subsets: ["latin"],
+});
+
+const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  subsets: ["latin"],
+});
 
 const url = 'https://milo-ramirez.web.app/'
 const owner = 'Milo Ramirez';
 const title = `${owner} Portfolio`;
-const titleLong = `${title} - Front end & UI`;
-const description = "Hello world! Milo here. I'm a Front end Developer based in Rio de Janeiro with background in UI Design and Graphic Design.";
+const titleLong = `${title} - Frontend & UI`;
+const description = "Hello world! Milo here. I'm a Frontend Developer based in Rio de Janeiro with background in UI Design and Graphic Design.";
 
 export const metadata: Metadata = {
   title: title,
@@ -48,7 +58,7 @@ export const viewport: Viewport = {
   minimumScale: 1,
   userScalable: false,
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#1D1E21' },
+    // { media: '(prefers-color-scheme: dark)', color: '#1D1E21' },
     { media: '(prefers-color-scheme: light)', color: '#F4F3F2' }
   ]
 };
@@ -59,8 +69,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${figtree} ${space_mono}`}>{children}</body>
+    <html lang="en" className={`${figtree.className} ${spaceMono.className}`}>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

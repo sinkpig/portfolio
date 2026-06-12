@@ -6,6 +6,9 @@
   --foreground: var(--purple-DEFAULT);
   --background: var(--white);
 
+  --purple: var(--purple-DEFAULT);
+  --yellow: var(--yellow-DEFAULT);
+
   --mono: Space Mono, 'SFMono-Regular', 'Consolas' , 'Courier New', courier, monospace;
   --sans-serif: Figtree, 'Poppins', 'Montserrat', 'Gill Sans', 'Avant Garde', 'Avenir', 'Helvetica Neue', helvetica, verdana, arial, sans-serif;
 }
@@ -16,6 +19,11 @@
     --background: var(--purple-dark);
   }
 } */
+
+::selection {
+  color: var(--white);
+  background: var(--yellow);
+}
 
 * {
   box-sizing: border-box;
@@ -37,6 +45,36 @@ body {
   font-family: var(--sans-serif);
   font-weight: 300;
   font-size: 20px;
+}
+
+a {
+  color: var(--yellow);
+  position: relative;
+  display: inline-block;
+  transition: 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+  &:hover {
+    color: var(--red);
+  }
+  &::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1.5px;
+    position: absolute;
+    background: var(--red);
+    -webkit-transition: width 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s, left 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s;
+    -moz-transition: width 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s, left 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s;
+    -ms-transition: width 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s, left 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s;
+    -o-transition: width 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s, left 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s;
+    transition: width 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s, left 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s;
+    width: 0%;
+    left: 50%;
+  }
+  &:hover::after {
+    width: 100%;
+    left: 0%;
+  }
 }
 
 @layer utilities {
